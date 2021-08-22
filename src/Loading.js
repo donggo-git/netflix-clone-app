@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Suspense() {
+function Loading() {
     return (
         <div>
             <video controls width="100%" autoplay="autoplay" muted controls={false}>
@@ -17,4 +17,4 @@ function Suspense() {
     )
 }
 
-export default Suspense
+export default Loading
