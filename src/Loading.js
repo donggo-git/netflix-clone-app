@@ -1,9 +1,10 @@
 import React from 'react'
+import "./Loading.css"
 
 function Loading() {
     return (
-        <div>
-            <video controls width="100%" autoplay="autoplay" muted controls={false}>
+        <div className="Loading">
+            <video controls width="100%" height="100%" autoplay="autoplay" muted controls={false}>
 
                 <source src="/Netflix New Logo Animation Intro (Februrary 2019).mp4"
                     type="video/webm" />
