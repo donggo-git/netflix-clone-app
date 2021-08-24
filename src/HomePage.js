@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import "./HomePage.css"
 import { AiOutlineSearch, AiFillCaretDown, AiFillBell, AiOutlineClose } from 'react-icons/ai';
 import { GiHamburgerMenu } from 'react-icons/gi'
+import Header from './Header'
 
 function HomePage() {
     const linkStyle = {
@@ -22,7 +23,7 @@ function HomePage() {
                 <ul className="nav_link_list"
                     style={window.screen.width < 1000 ?
                         isNavClose ? navLinkStyleClose :
-                            navLinkStyleOpen : ""
+                            navLinkStyleOpen : {}
                     }
                 >
                     <AiOutlineClose className="close-icon" onClick={() => setNavClose(true)} />
@@ -33,13 +34,14 @@ function HomePage() {
                     <li><a href="#">My List</a></li>
                 </ul>
                 <div className="nav_right_column">
-                    <AiOutlineSearch />
+                    <AiOutlineSearch className="nav_right_column_icon" />
                     <p>Search</p>
-                    <AiFillBell />
+                    <AiFillBell className="nav_right_column_icon" />
                     <img src="https://th.bing.com/th/id/R.8b61c1b9698d53bf246e1e245240ebee?rik=kDstmfK1wN4eWA&pid=ImgRaw&r=0" />
-                    <AiFillCaretDown />
+                    <AiFillCaretDown className="nav_right_column_icon" />
                 </div>
             </nav>
+            <Header />
         </div>
     )
 }
