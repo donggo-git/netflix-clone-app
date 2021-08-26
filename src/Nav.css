@@ -1,0 +1,117 @@
+nav{
+    height: 80px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    position: fixed;
+    background-color: rgba(0,0,0,0.5);
+    top: 0;
+    z-index: 10;
+}
+.nav_black{
+    background-color: rgb(0, 0, 0);
+}
+nav>img{
+    margin-left: 20px;
+    height: 100%;
+}
+.nav_link_list{
+    display: flex;
+    margin-left: 30px;
+}
+.nav_link_list>li{
+    list-style: none;
+}
+.nav_link_list a{
+    text-decoration: none;
+    color: rgb(189, 189, 189);
+    margin-right: 20px;
+    font-weight: bold;
+}
+.nav_right_column{
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 50px;
+    height: 100%;
+    font-size: 17px;
+    font-weight: bold;
+}
+.nav_right_column>p{
+    margin-right: 20px;
+    margin-left: 10px;
+}
+.nav_right_column>img{
+    height: 60%;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+.burger-icon{
+    font-size: 1.5rem;
+    margin-left: 20px;
+    display: none;
+}
+.close-icon{
+    display: none;
+}
+@media only screen and (max-width: 1000px){
+    nav{
+        background-color: rgba(0,0,0,0.2);
+        height: 50px;
+    }
+    nav>img{
+        height: 50%;
+    }
+    .nav_link_list{
+        order: -1;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: fixed;
+        top: -10px;
+        height: 100vh;
+        width: auto;
+        transform: translateX(-100%);
+        transition: all 0.4s;
+        font-size: 1rem;
+        padding: 20px;
+        padding-left: 0;
+        overflow: hidden;
+        background-color: rgb(0, 0, 0,0.9);
+    }
+    .nav_right_column{
+        margin-right: 10px;
+    }
+    .nav_right_column>p{
+        display: none;
+    }
+    .nav_right_column>img{
+        margin: 0 5px;
+        height: 40%;
+    }
+    .nav_right_column_icon{
+        margin:0 5px
+    }
+    .nav_link_homePage{
+        margin-top: 100px;
+    }
+    .nav_link_list li{
+        margin-left: 0;
+        margin-bottom: 20px;
+        width: 100%;
+        padding-bottom: 5px;
+        border-bottom: 1px solid rgb(116, 116, 116);
+        padding-left: 40px;
+    }
+    .burger-icon{
+        display: block;
+        cursor: pointer;
+    }
+    .close-icon{
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 10px;
+    }
+}

@@ -20,7 +20,7 @@ function Row({ title }) {
             <h2>{title}</h2>
             <div className="Row_imgList">
                 {MovieList.map(movie => (
-                    <img src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`}
+                    <img src={`https://image.tmdb.org/t/p/original/${window.screen.width > 1000 ? movie?.backdrop_path : movie?.poster_path}`}
                         key={movie?.id} height='100%'
                     />
                 ))}
