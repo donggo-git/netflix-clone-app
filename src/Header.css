@@ -59,13 +59,15 @@
     .header_content{
         width: auto;
         bottom: 1%;
-
+       left: 50%;
+       transform: translateX(-50%);
     }
     .header_content>p,.header_content>h1{
         display: none;
     }
     .header_content_buttons>button{
         border-radius: 0;
+        
     }
     .addList_btn{
         background-color: rgb(224, 224, 224);

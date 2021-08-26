@@ -36,7 +36,7 @@ function Header() {
                 }}
             >
                 <div className="header_content">
-                    <h1>{movie?.title || movie?.original_title}</h1>
+                    <h1>{movie?.title || movie?.original_title || movie?.original_name}</h1>
                     <p>{truncate(movie?.overview)}</p>
                     <div className='header_content_buttons'>
                         <button className="watch_btn"><AiFillCaretRight /> WATCH</button>

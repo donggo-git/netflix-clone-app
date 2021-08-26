@@ -1,0 +1,10 @@
+.Row{
+    color: #fff;
+}
+.Row_imgList{
+    display: flex;
+    height: 100px;
+    width: auto;
+    overflow-x: scroll;
+    scrollbar-width: none;
+}

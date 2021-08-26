@@ -15,6 +15,7 @@ nav>img{
 }
 .nav_link_list{
     display: flex;
+    margin-left: 30px;
 }
 .nav_link_list>li{
     list-style: none;

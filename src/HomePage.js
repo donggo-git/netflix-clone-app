@@ -3,6 +3,7 @@ import "./HomePage.css"
 import { AiOutlineSearch, AiFillCaretDown, AiFillBell, AiOutlineClose } from 'react-icons/ai';
 import { GiHamburgerMenu } from 'react-icons/gi'
 import Header from './Header'
+import RowList from './RowList';
 
 function HomePage() {
     const linkStyle = {
@@ -44,6 +45,7 @@ function HomePage() {
                 </div>
             </nav>
             <Header />
+            <RowList />
         </div>
     )
 }
