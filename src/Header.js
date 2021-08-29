@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './Header.css'
 import { BASE_URL, type } from './request'
 import { AiFillCaretRight, AiOutlinePlus } from 'react-icons/ai'
+import DetailPage from './DetailPage'
 
 function Header() {
     const [movie, setMovie] = useState([])
@@ -44,6 +45,7 @@ function Header() {
                     </div>
                 </div>
             </div>
+            <DetailPage movie={movie} />
         </div >
     )
 }
