@@ -18,6 +18,49 @@
 }
 .detail_content>h1{
 }
-.detail_content_date{
+.detail_content_dateNmatch{
+    margin-top: 5px;
+    display: flex;
+    width: 35%;
     margin-bottom: 20px;
+    justify-content: space-between;
+}
+.detail_content_match{
+    color: rgb(73, 216, 73);
+}
+.detail_content_overview{
+    font-size: 1.1rem;
+}
+.detail_btn{
+    margin-top: 25px;
+    display: flex;
+}
+.detail_btn>button{
+    width: 120px;
+    margin: 0 5px;
+    height: 50px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    cursor: pointer;
+    transition: all 0.2s;       
+}
+.detail_btn_play{
+    background-color: red;
+    color: #fff;
+}
+.detail_btn_play:hover{
+    background-color: rgb(247, 78, 78);
+}
+.detail_btn_watchList{
+    background: none;
+    border: 1px solid #fff!important;
+    color: #fff;
+}
+.detail_btn_watchList:hover{
+    background-color: rgba(228, 228, 228,0.2);
+}
+.detail_btn_icons{
+    margin-right: 5px;
 }
