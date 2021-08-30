@@ -6,14 +6,21 @@ import { AiOutlinePlus } from 'react-icons/ai'
 function DetailPage({ movie }) {
     let backgroundImg = {
         backgroundSize: "cover",
-        backgroundImage: `linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.5    )),
+        backgroundImage: window.screen.width > 1000 ?
+            `linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.5)),
+        url('https://image.tmdb.org/t/p/original/${movie?.backdrop_path}')`
+            : `linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.2)),
         url('https://image.tmdb.org/t/p/original/${movie?.backdrop_path}')`,
         backgroundPosition: 'center',
     }
     return (
         <div className="detailPage"
-            style={backgroundImg}
+            style={window.screen.width > 1000 ? backgroundImg : {}}
         >
+            <div
+                className="detailPage_responsiveBackground"
+                style={window.screen.width <= 1000 ? backgroundImg : {}}
+            ></div>
             <div className='detail_img_container'>
                 <img src={`https://image.tmdb.org/t/p/original/${movie?.poster_path}`} height="100%" />
             </div>

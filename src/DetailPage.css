@@ -16,8 +16,7 @@
     width: 40%;
     min-height: 60%;
 }
-.detail_content>h1{
-}
+
 .detail_content_dateNmatch{
     margin-top: 5px;
     display: flex;
@@ -63,4 +62,38 @@
 }
 .detail_btn_icons{
     margin-right: 5px;
+}
+.detailPage_responsiveBackground{
+    display: none;
+}
+@media only screen and (max-width: 1000px){
+    .detailPage{
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+    .detail_img_container{
+        display: none;
+    }
+    .detailPage_responsiveBackground{
+        display: block;
+        height: 50%;
+        width: 100%;
+    }
+    .detail_content{
+        width: 90%;
+        margin-left: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+    .detail_content_dateNmatch{
+        width: 180px;
+        margin-bottom: 5px;
+    }
+    .detail_content_overview{
+        order: 1;
+    }
+    .detail_btn{
+        margin-top: 5px;
+        margin-bottom: 20px;
+    }
 }
