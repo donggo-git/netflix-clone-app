@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './DetailPage.css'
 import { BiRightArrow } from 'react-icons/bi'
 import { AiOutlinePlus } from 'react-icons/ai'
+import movieTrailer from 'movie-trailer'
 
 function DetailPage({ movie }) {
     let backgroundImg = {
@@ -12,6 +13,10 @@ function DetailPage({ movie }) {
             : `linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.2)),
         url('https://image.tmdb.org/t/p/original/${movie?.backdrop_path}')`,
         backgroundPosition: 'center',
+    }
+    const showTrailer = (movie) => {
+        movieTrailer(movie?.title || movie?.original_title || movie?.original_name, { tmdbId: movie.id })
+            .then(response => console.log(response))
     }
     return (
         <div className="detailPage"
@@ -32,7 +37,7 @@ function DetailPage({ movie }) {
                 </div>
                 <p className='detail_content_overview'>{movie?.overview}</p>
                 <div className="detail_btn">
-                    <button className='detail_btn_play'>
+                    <button className='detail_btn_play' onClick={() => showTrailer(movie)}>
                         <BiRightArrow className='detail_btn_icons' />   PLAY
                     </button>
                     <button className="detail_btn_watchList">

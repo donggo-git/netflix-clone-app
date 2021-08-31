@@ -70,13 +70,15 @@
     .detailPage{
         flex-direction: column;
         justify-content: flex-end;
+        height: auto;
+        padding-bottom: 20px;
     }
     .detail_img_container{
         display: none;
     }
     .detailPage_responsiveBackground{
         display: block;
-        height: 50%;
+        height: 50vh;
         width: 100%;
     }
     .detail_content{
