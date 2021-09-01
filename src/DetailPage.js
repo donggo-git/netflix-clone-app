@@ -3,6 +3,7 @@ import './DetailPage.css'
 import { BiRightArrow } from 'react-icons/bi'
 import { AiOutlinePlus } from 'react-icons/ai'
 import movieTrailer from 'movie-trailer'
+import YouTube from 'react-youtube'
 
 function DetailPage({ movie }) {
     let backgroundImg = {
@@ -14,10 +15,23 @@ function DetailPage({ movie }) {
         url('https://image.tmdb.org/t/p/original/${movie?.backdrop_path}')`,
         backgroundPosition: 'center',
     }
+    const [movieTrailerURL, setMovieTrailerURL] = useState("")
     const showTrailer = (movie) => {
         movieTrailer(movie?.title || movie?.original_title || movie?.original_name, { tmdbId: movie.id })
-            .then(response => console.log(response))
+            .then(response => {
+                const urlParams = new URLSearchParams(new URL(response).search);
+                setMovieTrailerURL(urlParams.get("v"))
+                console.log(urlParams.get("v"))
+            })
     }
+    const opts = {
+        height: '390',
+        width: '640',
+        playerVars: {
+            // https://developers.google.com/youtube/player_parameters
+            autoplay: 1,
+        },
+    };
     return (
         <div className="detailPage"
             style={window.screen.width > 1000 ? backgroundImg : {}}
@@ -44,6 +58,7 @@ function DetailPage({ movie }) {
                         <AiOutlinePlus className='detail_btn_icons' />WATCH LIST
                     </button>
                 </div>
+                <YouTube videoId={movieTrailerURL} opts={opts} />
             </div>
         </div>
     )
