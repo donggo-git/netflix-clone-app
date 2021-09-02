@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import './DetailPage.css'
 import { BiRightArrow } from 'react-icons/bi'
-import { AiOutlinePlus } from 'react-icons/ai'
+import { AiOutlinePlus, AiOutlineArrowLeft } from 'react-icons/ai'
 import movieTrailer from 'movie-trailer'
 import YouTube from 'react-youtube'
+import { NavLink } from 'react-router-dom'
 
 function DetailPage({ movie, changeMovieTrailer }) {
     let backgroundImg = {
@@ -15,25 +16,14 @@ function DetailPage({ movie, changeMovieTrailer }) {
         url('https://image.tmdb.org/t/p/original/${movie?.backdrop_path}')`,
         backgroundPosition: 'center',
     }
-    const [movieTrailerURL, setMovieTrailerURL] = useState("")
-    const showTrailer = (movie) => {
-        movieTrailer(movie?.title || movie?.original_title || movie?.original_name)
-            .then(response => {
-                if (response) {
-                    const urlParams = new URLSearchParams(new URL(response).search);
-                    setMovieTrailerURL(urlParams.get("v"))
-                    console.log(response)
-                    console.log(urlParams.get("v"))
-                }
-                else {
-                    alert("Apology the movie is not available right now")
-                }
-            })
-    }
+
     return (
         <div className="detailPage"
             style={window.screen.width > 1000 ? backgroundImg : {}}
         >
+            <NavLink to="/">
+                <AiOutlineArrowLeft className="return_btn" />
+            </NavLink>
             <div
                 className="detailPage_responsiveBackground"
                 style={window.screen.width <= 1000 ? backgroundImg : {}}

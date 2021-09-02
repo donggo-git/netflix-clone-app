@@ -3,6 +3,7 @@ import TrailerVideo from './TrailerVideo'
 import movieTrailer from 'movie-trailer'
 import DetailPage from './DetailPage';
 import HomePage from './HomePage';
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 function NetflixApp() {
     const [movieTrailerURL, setMovieTrailerURL] = useState("")
@@ -25,11 +26,16 @@ function NetflixApp() {
         setDetailMovie(movie)
     }
     return (
-        <div>
-            <HomePage changeDetail={changeDetail} />
-            <DetailPage movie={detailMovie} changeMovieTrailer={changeMovieTrailer} />
-            <TrailerVideo movieTrailerURL={movieTrailerURL} />
-        </div>
+        <BrowserRouter>
+            <Switch>
+                <Route path='/' exact component={() => <HomePage changeDetail={changeDetail} />} />
+                <Route path='/detail' component={() =>
+                    <DetailPage movie={detailMovie} changeMovieTrailer={changeMovieTrailer} />}
+                />
+            </Switch>
+            {//<TrailerVideo movieTrailerURL={movieTrailerURL} />
+            }
+        </BrowserRouter>
     )
 }
 

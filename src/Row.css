@@ -7,16 +7,18 @@
     margin-top: 20px;
     display: flex;
     height: 120px;
-    width: auto;
+    width: 100%;
     overflow-x: scroll;
     scrollbar-width: none;
 }
-.Row_imgList>img{
+.Row_imgList_imgContainer{
     cursor: pointer;
-    transition: all 0.4s;
+    width: 213px;
+    
 }
-.Row_imgList>img:hover{
+.Row_imgList img:hover{
     transform: scale(1.05);
+    transition: all 0.4s;
 }
 @media only screen and (max-width: 1000px){
     .Row{
