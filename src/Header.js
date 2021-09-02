@@ -45,7 +45,6 @@ function Header() {
                     </div>
                 </div>
             </div>
-            <DetailPage movie={movie} />
         </div >
     )
 }

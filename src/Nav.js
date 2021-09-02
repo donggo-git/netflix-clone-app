@@ -20,7 +20,7 @@ function Nav() {
             if (window.scrollY > 580) setIsBlackNav(true)
             else setIsBlackNav(false)
         });
-        return () => window.removeEventListener("scroll")
+
     }, [])
     return (
         <nav className={isBlackNav ? 'nav_black' : ""}>

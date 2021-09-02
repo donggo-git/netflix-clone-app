@@ -1,12 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
-import { lazy, Suspense } from 'react'
+import { lazy, Suspense, useState, React } from 'react'
 import Loading from './Loading';
 
 function App() {
-  let HomePage = lazy(() => {
+  let NetflixApp = lazy(() => {
     return Promise.all([
-      import("./HomePage"),
+      import("./NetflixApp"),
       new Promise(resolve => setTimeout(resolve, 3500))
     ])
       .then(([moduleExports]) => moduleExports);
@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="App">
       <Suspense fallback={<Loading />}>
-        <HomePage />
+        <NetflixApp />
       </Suspense>
     </div>
   );
