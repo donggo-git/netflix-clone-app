@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import YouTube from 'react-youtube'
 
 function TrailerVideo({ movieTrailerURL }) {
-    const [movie, setMovie] = useState("");
     const opts = {
         height: '390',
         width: '640',
@@ -10,7 +9,7 @@ function TrailerVideo({ movieTrailerURL }) {
             autoplay: 0,
         },
     };
-
+    console.log(movieTrailerURL)
     return (
         <div>
             <YouTube videoId={movieTrailerURL} opts={opts} />

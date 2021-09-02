@@ -8,13 +8,13 @@ function NetflixApp() {
     const [movieTrailerURL, setMovieTrailerURL] = useState("")
     const [detailMovie, setDetailMovie] = useState({})
     const changeMovieTrailer = (movie) => {
+        console.log(movie)
         movieTrailer(movie?.title || movie?.original_title || movie?.original_name)
             .then(response => {
                 if (response) {
                     const urlParams = new URLSearchParams(new URL(response).search);
                     setMovieTrailerURL(urlParams.get("v"))
-                    console.log(response)
-                    console.log(urlParams.get("v"))
+
                 }
                 else {
                     alert("Apology the movie is not available right now")
@@ -22,14 +22,13 @@ function NetflixApp() {
             })
     }
     const changeDetail = (movie) => {
-        console.log(movie)
         setDetailMovie(movie)
     }
     return (
         <div>
             <HomePage changeDetail={changeDetail} />
-            <DetailPage movie={detailMovie} />
-            <TrailerVideo movie={movieTrailerURL} />
+            <DetailPage movie={detailMovie} changeMovieTrailer={changeMovieTrailer} />
+            <TrailerVideo movieTrailerURL={movieTrailerURL} />
         </div>
     )
 }

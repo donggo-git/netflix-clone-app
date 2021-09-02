@@ -5,7 +5,7 @@ import { AiOutlinePlus } from 'react-icons/ai'
 import movieTrailer from 'movie-trailer'
 import YouTube from 'react-youtube'
 
-function DetailPage({ movie }) {
+function DetailPage({ movie, changeMovieTrailer }) {
     let backgroundImg = {
         backgroundSize: "cover",
         backgroundImage: window.screen.width > 1000 ?
@@ -49,7 +49,7 @@ function DetailPage({ movie }) {
                 </div>
                 <p className='detail_content_overview'>{movie?.overview}</p>
                 <div className="detail_btn">
-                    <button className='detail_btn_play' onClick={() => showTrailer(movie)}>
+                    <button className='detail_btn_play' onClick={() => changeMovieTrailer(movie)}>
                         <BiRightArrow className='detail_btn_icons' />   PLAY
                     </button>
                     <button className="detail_btn_watchList">
