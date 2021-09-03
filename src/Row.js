@@ -21,7 +21,7 @@ function Row({ title, changeDetail }) {
             <h2>{title}</h2>
             <div className="Row_imgList">
                 {MovieList.map(movie => (
-                    <NavLink to='/detail' className="Row_imgList_imgContainer">
+                    <NavLink to='/detail' className="Row_imgList_imgContainer" key={movie?.id}>
                         <img src={`https://image.tmdb.org/t/p/original/${window.screen.width > 1000 ? movie?.backdrop_path : movie?.poster_path}`}
                             key={movie?.id} height='100%' onClick={() => changeDetail(movie)}
                         />

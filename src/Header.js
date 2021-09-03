@@ -4,7 +4,7 @@ import { BASE_URL, type } from './request'
 import { AiFillCaretRight, AiOutlinePlus } from 'react-icons/ai'
 import DetailPage from './DetailPage'
 
-function Header() {
+function Header({ playHandle }) {
     const [movie, setMovie] = useState([])
     const [headerImg, setHeaderImg] = useState()
     const fetchTrending = async () => {
@@ -12,7 +12,6 @@ function Header() {
             .then((movieList) => {
                 movieList.json().then((data) => {
                     setMovie(data.results[Math.floor(Math.random() * 20)])
-                    console.log(data.results)
                 })
             })
 
@@ -40,7 +39,7 @@ function Header() {
                     <h1>{movie?.title || movie?.original_title || movie?.original_name}</h1>
                     <p>{truncate(movie?.overview)}</p>
                     <div className='header_content_buttons'>
-                        <button className="watch_btn"><AiFillCaretRight /> WATCH</button>
+                        <button className="watch_btn" onClick={() => playHandle(movie)}><AiFillCaretRight /> WATCH</button>
                         <button className="addList_btn"><AiOutlinePlus /> ADD LIST</button>
                     </div>
                 </div>

@@ -4,11 +4,11 @@ import Header from './Header'
 import RowList from './RowList';
 import Nav from './Nav'
 
-function HomePage({ changeDetail }) {
+function HomePage({ changeDetail, playHandle }) {
     return (
         <div>
             <Nav />
-            <Header />
+            <Header playHandle={playHandle} />
             <RowList changeDetail={changeDetail} />
         </div>
     )

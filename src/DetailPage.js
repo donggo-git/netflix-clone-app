@@ -6,7 +6,7 @@ import movieTrailer from 'movie-trailer'
 import YouTube from 'react-youtube'
 import { NavLink } from 'react-router-dom'
 
-function DetailPage({ movie, changeMovieTrailer }) {
+function DetailPage({ movie, playHandle }) {
     let backgroundImg = {
         backgroundSize: "cover",
         backgroundImage: window.screen.width > 1000 ?
@@ -39,7 +39,7 @@ function DetailPage({ movie, changeMovieTrailer }) {
                 </div>
                 <p className='detail_content_overview'>{movie?.overview}</p>
                 <div className="detail_btn">
-                    <button className='detail_btn_play' onClick={() => changeMovieTrailer(movie)}>
+                    <button className='detail_btn_play' onClick={() => playHandle(movie)}>
                         <BiRightArrow className='detail_btn_icons' />   PLAY
                     </button>
                     <button className="detail_btn_watchList">
