@@ -26,7 +26,7 @@
 .header_content_buttons{
     display: flex;
 }
-.header_content_buttons>button{
+.header_content_buttons>button,.watch_btn_container{
     margin: 0 5px;
     padding: 15px 20px;
     border-radius: 10rem;
@@ -39,12 +39,17 @@
     cursor: pointer;
     transition: all 0.4s;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-decoration: none;
 }
-.header_content_buttons>button:hover{
+.header_content_buttons>button:hover,.watch_btn_container:hover{
     transform: scale(1.03);
 }
-.watch_btn{
+.watch_btn_container{
     background-color: red;
+}
+.watch_btn_container>button{
+    background:none;
+    border: none;
 }
 .addList_btn{
     background-color: #333;
@@ -65,7 +70,7 @@
     .header_content>p,.header_content>h1{
         display: none;
     }
-    .header_content_buttons>button{
+    .header_content_buttons>button,.header_content_buttons>NavLink{
         border-radius: 0;
         
     }

@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react'
 import './Header.css'
 import { BASE_URL, type } from './request'
 import { AiFillCaretRight, AiOutlinePlus } from 'react-icons/ai'
-import DetailPage from './DetailPage'
+import { NavLink } from 'react-router-dom'
 
-function Header({ playHandle }) {
+function Header({ changeDetail }) {
     const [movie, setMovie] = useState([])
     const [headerImg, setHeaderImg] = useState()
     const fetchTrending = async () => {
@@ -39,7 +39,7 @@ function Header({ playHandle }) {
                     <h1>{movie?.title || movie?.original_title || movie?.original_name}</h1>
                     <p>{truncate(movie?.overview)}</p>
                     <div className='header_content_buttons'>
-                        <button className="watch_btn" onClick={() => playHandle(movie)}><AiFillCaretRight /> WATCH</button>
+                        <NavLink to="/detail" className='watch_btn_container'><button className="watch_btn" onClick={() => changeDetail(movie)}><AiFillCaretRight /> WATCH</button></NavLink>
                         <button className="addList_btn"><AiOutlinePlus /> ADD LIST</button>
                     </div>
                 </div>

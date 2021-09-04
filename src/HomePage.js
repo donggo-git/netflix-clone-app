@@ -8,7 +8,7 @@ function HomePage({ changeDetail, playHandle }) {
     return (
         <div>
             <Nav />
-            <Header playHandle={playHandle} />
+            <Header playHandle={playHandle} changeDetail={changeDetail} />
             <RowList changeDetail={changeDetail} />
         </div>
     )
