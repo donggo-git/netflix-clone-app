@@ -50,6 +50,7 @@
 .watch_btn_container>button{
     background:none;
     border: none;
+    color: #fff;
 }
 .addList_btn{
     background-color: #333;
@@ -70,7 +71,7 @@
     .header_content>p,.header_content>h1{
         display: none;
     }
-    .header_content_buttons>button,.header_content_buttons>NavLink{
+    .header_content_buttons>button,.watch_btn_container{
         border-radius: 0;
         
     }

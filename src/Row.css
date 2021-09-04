@@ -13,8 +13,11 @@
 }
 .Row_imgList_imgContainer{
     cursor: pointer;
-    width: 213px;
+    width: 120px;
     
+}
+.Row_imgList_imgContainer>img{
+    display: block;
 }
 .Row_imgList img:hover{
     transform: scale(1.05);
@@ -26,5 +29,6 @@
     }
     .Row_imgList{
         height: 150px;
+        width: auto;
     }
 }

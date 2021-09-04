@@ -18,8 +18,8 @@ function TrailerVideo({ movieTrailerURL, isTrailerShow, closeTrailer }) {
         opacity: 1
     }
     const opts = {
-        height: '390',
-        width: '640',
+        height: window.screen.width > 1000 ? '390' : "190",
+        width: window.screen.width > 1000 ? '640' : "240",
         playerVars: {
             autoplay: 0,
         },
