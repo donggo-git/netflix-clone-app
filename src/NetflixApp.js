@@ -4,6 +4,8 @@ import movieTrailer from 'movie-trailer'
 import DetailPage from './DetailPage';
 import HomePage from './HomePage';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import './NetflixApp.css'
 
 function NetflixApp() {
     const [movieTrailerURL, setMovieTrailerURL] = useState("")
@@ -34,16 +36,25 @@ function NetflixApp() {
     }
     return (
         <BrowserRouter>
-            <Switch>
-                <Route path='/' exact component={() =>
-                    <HomePage
-                        changeDetail={changeDetail}
-                        playHandle={playHandle}
-                    />} />
-                <Route path='/detail' component={() =>
-                    <DetailPage movie={detailMovie} playHandle={playHandle} />}
-                />
-            </Switch>
+            <Route render={({ location }) => (
+
+                <TransitionGroup>
+                    {console.log(location)}
+                    <CSSTransition timeout={300} classNames={location.pathname === '/' ? 'transitionToRight' : 'transitionToLeft'} key={location.key}>
+                        <Switch>
+                            <Route path='/' exact component={() =>
+                                <HomePage
+                                    changeDetail={changeDetail}
+                                    playHandle={playHandle}
+                                />} />
+                            <Route path='/detail' component={() =>
+                                <DetailPage movie={detailMovie} playHandle={playHandle} />}
+                            />
+                        </Switch>
+                    </CSSTransition>
+                </TransitionGroup>
+            )} />
+
             <TrailerVideo movieTrailerURL={movieTrailerURL} isTrailerShow={isTrailerShow} closeTrailer={closeTrailer} />
         </BrowserRouter>
     )

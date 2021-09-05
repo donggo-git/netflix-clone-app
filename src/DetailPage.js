@@ -18,7 +18,7 @@ function DetailPage({ movie, playHandle }) {
     }
 
     return (
-        <div className="detailPage"
+        <div className="detailPage page"
             style={window.screen.width > 1000 ? backgroundImg : {}}
         >
             <NavLink to="/">

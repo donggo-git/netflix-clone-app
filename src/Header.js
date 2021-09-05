@@ -8,6 +8,7 @@ function Header({ changeDetail }) {
     const [movie, setMovie] = useState([])
     const [headerImg, setHeaderImg] = useState()
     const fetchTrending = async () => {
+
         fetch('https://api.themoviedb.org/3/trending/all/day?api_key=d03ccd3f8ae255e9b5fa0f7c48581e8c')
             .then((movieList) => {
                 movieList.json().then((data) => {

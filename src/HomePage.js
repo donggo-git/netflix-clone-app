@@ -6,7 +6,7 @@ import Nav from './Nav'
 
 function HomePage({ changeDetail, playHandle }) {
     return (
-        <div>
+        <div className="page">
             <Nav />
             <Header playHandle={playHandle} changeDetail={changeDetail} />
             <RowList changeDetail={changeDetail} />

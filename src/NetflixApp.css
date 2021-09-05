@@ -1,0 +1,48 @@
+.transitionToRight-appear,.transitionToRight-enter{
+    transform: translateX(100%);
+    z-index: 1;
+    transition: none;
+  }
+  .transitionToRight-appear-active,.transitionToRight-enter.transitionToRight-enter-active{
+    
+    transition: all 250ms linear 100ms;
+    transform: translateX(0%);
+  }
+  
+  .transitionToRight-exit{
+    transform: translateX(0%);
+    transition: none;
+  }
+  .transitionToRight-exit.transitionToRight-exit-active{
+    transform: translateX(100%);
+    transition: all 250ms linear;
+  }
+
+
+  .transitionToLeft-appear,.transitionToLeft-enter{
+    transform: translateX(-100%);
+    z-index: 1;
+    transition: none;
+  }
+  .transitionToLeft-appear-active,.transitionToLeft-enter.transitionToLeft-enter-active{
+    
+    transition: all 250ms linear 100ms;
+    transform: translateX(0);
+  }
+  
+  .transitionToLeft-exit{
+    transform: translateX(0%);
+    transition: none;
+  }
+  .transitionToLeft-exit.transitionToLeft-exit-active{
+    transform: translateX(-100%);
+    transition: all 250ms linear;
+
+  }
+
+  .page{
+    position: absolute;
+    top: 0px;
+    left: 0;
+    right: 0;
+  }
