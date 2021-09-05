@@ -13,7 +13,7 @@
 }
 .Row_imgList_imgContainer{
     cursor: pointer;
-    width: 120px;
+    width: 210px;
     
 }
 .Row_imgList_imgContainer>img{
@@ -30,5 +30,8 @@
     .Row_imgList{
         height: 150px;
         width: auto;
+    }
+    .Row_imgList_imgContainer{
+        width: 100px;
     }
 }
