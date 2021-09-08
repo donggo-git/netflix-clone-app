@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import TrailerVideo from './TrailerVideo'
 import movieTrailer from 'movie-trailer'
 import DetailPage from './DetailPage';
 import HomePage from './HomePage';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import { db } from './firebase'
 import './NetflixApp.css'
 
 function NetflixApp() {
@@ -34,6 +35,37 @@ function NetflixApp() {
     const changeDetail = (movie) => {
         setDetailMovie(movie)
     }
+    const [wishList, setWishList] = useState([])
+    const getWishList = () => {
+        db.collection("wishList").onSnapshot((snapshot) => {
+            let tempList = []
+            tempList = snapshot.docs.map(doc => ({
+                id: doc.id,
+                movie: doc.data()
+            }))
+            setWishList(tempList)
+        })
+    }
+    useEffect(() => getWishList(), [])
+    console.log(wishList)
+    const addToWishList = (movie) => {
+
+        const movieList = db.collection("wishList").doc(movie?.id.toString());
+        movieList.get()
+            .then((doc) => {
+                if (!doc.exists) {
+                    db.collection("wishList").doc(movie?.id.toString()).set({
+                        title: (movie?.title || movie?.original_title) ?? "",
+                        release_date: movie?.release_date ?? "",
+                        vote_average: movie?.vote_average ?? "",
+                        overview: movie?.overview ?? "",
+                        poster_path: movie?.poster_path ?? "",
+                        backdrop_path: movie?.backdrop_path ?? ""
+                    })
+                }
+                else return;
+            })
+    }
     return (
         <BrowserRouter>
             <Route render={({ location }) => (
@@ -48,7 +80,11 @@ function NetflixApp() {
                                     playHandle={playHandle}
                                 />} />
                             <Route path='/detail' component={() =>
-                                <DetailPage movie={detailMovie} playHandle={playHandle} />}
+                                <DetailPage
+                                    movie={detailMovie}
+                                    playHandle={playHandle}
+                                    addToWishList={addToWishList}
+                                />}
                             />
                         </Switch>
                     </CSSTransition>

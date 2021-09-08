@@ -6,7 +6,7 @@ import movieTrailer from 'movie-trailer'
 import YouTube from 'react-youtube'
 import { NavLink } from 'react-router-dom'
 
-function DetailPage({ movie, playHandle }) {
+function DetailPage({ movie, playHandle, addToWishList }) {
     let backgroundImg = {
         backgroundSize: "cover",
         backgroundImage: window.screen.width > 1000 ?
@@ -42,7 +42,7 @@ function DetailPage({ movie, playHandle }) {
                     <button className='detail_btn_play' onClick={() => playHandle(movie)}>
                         <BiRightArrow className='detail_btn_icons' />   PLAY
                     </button>
-                    <button className="detail_btn_watchList">
+                    <button className="detail_btn_watchList" onClick={() => addToWishList(movie)}>
                         <AiOutlinePlus className='detail_btn_icons' />WATCH LIST
                     </button>
                 </div>
