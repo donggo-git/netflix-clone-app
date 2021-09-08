@@ -9,7 +9,11 @@ function RowList({ changeDetail }) {
     const getWishList = () => {
         db.collection("wishList").onSnapshot((snapshot) => {
             let tempList = []
-            console.log(snapshot)
+            tempList = snapshot.docs.map(doc => ({
+                id: doc.id,
+                movie: doc.data()
+            }))
+            setWishList(tempList)
         })
     }
     getWishList()
