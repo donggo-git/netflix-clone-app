@@ -35,19 +35,7 @@ function NetflixApp() {
     const changeDetail = (movie) => {
         setDetailMovie(movie)
     }
-    const [wishList, setWishList] = useState([])
-    const getWishList = () => {
-        db.collection("wishList").onSnapshot((snapshot) => {
-            let tempList = []
-            tempList = snapshot.docs.map(doc => ({
-                id: doc.id,
-                movie: doc.data()
-            }))
-            setWishList(tempList)
-        })
-    }
-    useEffect(() => getWishList(), [])
-    console.log(wishList)
+
     const addToWishList = (movie) => {
 
         const movieList = db.collection("wishList").doc(movie?.id.toString());
@@ -55,7 +43,7 @@ function NetflixApp() {
             .then((doc) => {
                 if (!doc.exists) {
                     db.collection("wishList").doc(movie?.id.toString()).set({
-                        title: (movie?.title || movie?.original_title) ?? "",
+                        title: (movie?.title || movie?.original_title || movie?.original_name) ?? "",
                         release_date: movie?.release_date ?? "",
                         vote_average: movie?.vote_average ?? "",
                         overview: movie?.overview ?? "",
@@ -71,7 +59,6 @@ function NetflixApp() {
             <Route render={({ location }) => (
 
                 <TransitionGroup>
-                    {console.log(location)}
                     <CSSTransition timeout={300} classNames={location.pathname === '/' ? 'transitionToRight' : 'transitionToLeft'} key={location.key}>
                         <Switch>
                             <Route path='/' exact component={() =>

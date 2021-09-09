@@ -2,8 +2,6 @@ import React, { useState } from 'react'
 import './DetailPage.css'
 import { BiRightArrow } from 'react-icons/bi'
 import { AiOutlinePlus, AiOutlineArrowLeft } from 'react-icons/ai'
-import movieTrailer from 'movie-trailer'
-import YouTube from 'react-youtube'
 import { NavLink } from 'react-router-dom'
 
 function DetailPage({ movie, playHandle, addToWishList }) {
