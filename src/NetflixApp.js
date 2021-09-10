@@ -12,6 +12,7 @@ function NetflixApp() {
     const [movieTrailerURL, setMovieTrailerURL] = useState("")
     const [detailMovie, setDetailMovie] = useState({})
     const [isTrailerShow, setIsTrailerShow] = useState(false)
+    const [isAddToWL, setIsAddToWL] = useState(false)
     const playHandle = (movie) => {
         console.log(movie)
         movieTrailer(movie?.title || movie?.original_title || movie?.original_name)
@@ -32,6 +33,7 @@ function NetflixApp() {
     const closeTrailer = () => {
         setIsTrailerShow(false)
     }
+    //method change detail movie in detail page
     const changeDetail = (movie) => {
         setDetailMovie(movie)
     }
@@ -50,6 +52,8 @@ function NetflixApp() {
                         poster_path: movie?.poster_path ?? "",
                         backdrop_path: movie?.backdrop_path ?? ""
                     })
+                    setIsAddToWL(true)
+                    setTimeout(() => setIsAddToWL(false), 300)
                 }
                 else return;
             })
@@ -71,6 +75,7 @@ function NetflixApp() {
                                     movie={detailMovie}
                                     playHandle={playHandle}
                                     addToWishList={addToWishList}
+                                    isAddToWL={isAddToWL}
                                 />}
                             />
                         </Switch>

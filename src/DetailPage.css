@@ -84,6 +84,38 @@
 .return_btn:hover{
     background-color: rgba(238, 238, 238, 0.2);
 }
+.alert-enter {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  .alert-enter-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 300ms, transform 300ms;
+  }
+  .alert-exit {
+    opacity: 1;
+  }
+  .alert-exit-active {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 300ms, transform 300ms;
+  }
+  
+.addToWL{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 80px;
+    width: 80px;
+    background-color: rgba(150, 150, 150, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: #fff;
+    transition: opacity 300ms, transform 500ms;
+}
 @media only screen and (max-width: 1000px){
     .detailPage{
         flex-direction: column;

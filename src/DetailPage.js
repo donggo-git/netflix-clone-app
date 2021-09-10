@@ -3,8 +3,10 @@ import './DetailPage.css'
 import { BiRightArrow } from 'react-icons/bi'
 import { AiOutlinePlus, AiOutlineArrowLeft } from 'react-icons/ai'
 import { NavLink } from 'react-router-dom'
+import { CSSTransition } from 'react-transition-group';
+import { MdDone } from 'react-icons/md'
 
-function DetailPage({ movie, playHandle, addToWishList }) {
+function DetailPage({ movie, playHandle, addToWishList, isAddToWL }) {
     let backgroundImg = {
         backgroundSize: "cover",
         backgroundImage: window.screen.width > 1000 ?
@@ -16,35 +18,50 @@ function DetailPage({ movie, playHandle, addToWishList }) {
     }
 
     return (
-        <div className="detailPage page"
+        <div className="page"
             style={window.screen.width > 1000 ? backgroundImg : {}}
         >
-            <NavLink to="/">
-                <AiOutlineArrowLeft className="return_btn" />
-            </NavLink>
-            <div
-                className="detailPage_responsiveBackground"
-                style={window.screen.width <= 1000 ? backgroundImg : {}}
-            ></div>
-            <div className='detail_img_container'>
-                <img src={`https://image.tmdb.org/t/p/original/${movie?.poster_path}`} height="100%" />
-            </div>
-            <div className="detail_content">
-                <h1>{movie?.title || movie?.original_title || movie?.original_name}</h1>
-                <div className="detail_content_dateNmatch">
-                    <p className='detail_content_date'>{movie?.release_date?.split('-').reverse().join('/')}</p>
-                    <p className="detail_content_match">{movie?.vote_average * 10}% Match</p>
+            <div className="detailPage">
+                <NavLink to="/">
+                    <AiOutlineArrowLeft className="return_btn" />
+                </NavLink>
+                <div
+                    className="detailPage_responsiveBackground"
+                    style={window.screen.width <= 1000 ? backgroundImg : {}}
+                ></div>
+                <div className='detail_img_container'>
+                    <img src={`https://image.tmdb.org/t/p/original/${movie?.poster_path}`} height="100%" />
                 </div>
-                <p className='detail_content_overview'>{movie?.overview}</p>
-                <div className="detail_btn">
-                    <button className='detail_btn_play' onClick={() => playHandle(movie)}>
-                        <BiRightArrow className='detail_btn_icons' />   PLAY
-                    </button>
-                    <button className="detail_btn_watchList" onClick={() => addToWishList(movie)}>
-                        <AiOutlinePlus className='detail_btn_icons' />WATCH LIST
-                    </button>
+                <div className="detail_content">
+                    <h1>{movie?.title || movie?.original_title || movie?.original_name}</h1>
+                    <div className="detail_content_dateNmatch">
+                        <p className='detail_content_date'>{movie?.release_date?.split('-').reverse().join('/')}</p>
+                        <p className="detail_content_match">{movie?.vote_average * 10}% Match</p>
+                    </div>
+                    <p className='detail_content_overview'>{movie?.overview}</p>
+                    <div className="detail_btn">
+                        <button className='detail_btn_play' onClick={() => playHandle(movie)}>
+                            <BiRightArrow className='detail_btn_icons' />   PLAY
+                        </button>
+                        <button className="detail_btn_watchList" onClick={() => addToWishList(movie)}>
+                            <AiOutlinePlus className='detail_btn_icons' />WATCH LIST
+                        </button>
+                    </div>
                 </div>
             </div>
+            <CSSTransition
+                in={isAddToWL} timeout={300}
+                classNames="alert"
+                unmountOnExit
+            >
+
+
+                <div className="addToWL">
+                    <MdDone />
+                </div>
+
+            </CSSTransition>
+
         </div>
     )
 }

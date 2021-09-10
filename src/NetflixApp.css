@@ -4,7 +4,7 @@
     transition: none;
   }
   .transitionToRight-appear-active,.transitionToRight-enter.transitionToRight-enter-active{
-    
+    display: none;
     transition: all 250ms linear 100ms;
     transform: translateX(0%);
   }
