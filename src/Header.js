@@ -4,7 +4,7 @@ import { BASE_URL, type } from './request'
 import { AiFillCaretRight, AiOutlinePlus } from 'react-icons/ai'
 import { NavLink } from 'react-router-dom'
 
-function Header({ changeDetail }) {
+function Header({ changeDetail, addToWishList }) {
     const [movie, setMovie] = useState([])
     const [headerImg, setHeaderImg] = useState()
     const fetchTrending = async () => {
@@ -41,7 +41,7 @@ function Header({ changeDetail }) {
                     <p>{truncate(movie?.overview)}</p>
                     <div className='header_content_buttons'>
                         <NavLink to="/detail" className='watch_btn_container'><button className="watch_btn" onClick={() => changeDetail(movie)}><AiFillCaretRight /> WATCH</button></NavLink>
-                        <button className="addList_btn"><AiOutlinePlus /> ADD LIST</button>
+                        <button className="addList_btn" onClick={() => addToWishList(movie)}><AiOutlinePlus /> ADD LIST</button>
                     </div>
                 </div>
             </div>

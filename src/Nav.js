@@ -10,7 +10,7 @@ function Nav() {
     const [isNavClose, setNavClose] = useState(true)
     const [isBlackNav, setIsBlackNav] = useState(false)
     const navLinkStyleClose = {
-        transform: 'translateX(-120%)'
+        transform: 'translateX(-500%)'
     }
     const navLinkStyleOpen = {
         transform: 'translateX(-20%)'

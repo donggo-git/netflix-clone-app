@@ -63,12 +63,13 @@ function NetflixApp() {
             <Route render={({ location }) => (
 
                 <TransitionGroup>
-                    <CSSTransition timeout={300} classNames={location.pathname === '/' ? 'transitionToRight' : 'transitionToLeft'} key={location.key}>
+                    <CSSTransition timeout={300} classNames={location.pathname === '/' ? 'transitionToLeft' : 'transitionToRight'} key={location.key}>
                         <Switch>
                             <Route path='/' exact component={() =>
                                 <HomePage
                                     changeDetail={changeDetail}
                                     playHandle={playHandle}
+                                    addToWishList={addToWishList}
                                 />} />
                             <Route path='/detail' component={() =>
                                 <DetailPage

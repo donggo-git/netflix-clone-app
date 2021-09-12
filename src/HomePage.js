@@ -4,11 +4,11 @@ import Header from './Header'
 import RowList from './RowList';
 import Nav from './Nav'
 
-function HomePage({ changeDetail, playHandle }) {
+function HomePage({ changeDetail, playHandle, addToWishList }) {
     return (
         <div className="page">
             <Nav />
-            <Header playHandle={playHandle} changeDetail={changeDetail} />
+            <Header playHandle={playHandle} changeDetail={changeDetail} addToWishList={addToWishList} />
             <RowList changeDetail={changeDetail} />
         </div>
     )
