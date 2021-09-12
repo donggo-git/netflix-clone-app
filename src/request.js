@@ -10,4 +10,4 @@ const type = {
     Honor: `discover/movie?api_key=${key}&with_genres=27`,
     Crime: `discover/movie?api_key=${key}&with_genres=80`
 }
-export { BASE_URL, type }
+export { BASE_URL, type, key }
