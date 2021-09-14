@@ -1,12 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './DetailPage.css'
 import { BiRightArrow } from 'react-icons/bi'
-import { AiOutlinePlus, AiOutlineArrowLeft } from 'react-icons/ai'
+import { AiOutlinePlus, AiOutlineArrowLeft, AiOutlineMinus } from 'react-icons/ai'
 import { NavLink } from 'react-router-dom'
 import { CSSTransition } from 'react-transition-group';
 import { MdDone } from 'react-icons/md'
+import { db } from './firebase'
 
 function DetailPage({ movie, playHandle, addToWishList, isAddToWL }) {
+    const [NotInWishList, setNotInWishList] = useState(false)
     let backgroundImg = {
         backgroundSize: "cover",
         backgroundImage: window.screen.width > 1000 ?
@@ -16,6 +18,22 @@ function DetailPage({ movie, playHandle, addToWishList, isAddToWL }) {
         url('https://image.tmdb.org/t/p/original/${movie?.backdrop_path}')`,
         backgroundPosition: 'center',
     }
+
+    const checkWishList = (movie) => {
+        if (Object.keys(movie).length !== 0 && movie.id !== undefined) {
+            const movieList = db.collection("wishList").doc(movie?.id.toString());
+            movieList.get()
+                .then((doc) => {
+                    if (!doc.exists) setNotInWishList(true)
+                    else setNotInWishList(false)
+                })
+        }
+        else {
+            return
+        }
+    }
+
+    useEffect(() => checkWishList(movie), [])
 
     return (
         <div className="page"
@@ -44,7 +62,14 @@ function DetailPage({ movie, playHandle, addToWishList, isAddToWL }) {
                             <BiRightArrow className='detail_btn_icons' />   PLAY
                         </button>
                         <button className="detail_btn_watchList" onClick={() => addToWishList(movie)}>
-                            <AiOutlinePlus className='detail_btn_icons' />WATCH LIST
+                            {/*change icon when movie in wish list*/}
+
+                            {!NotInWishList ?
+                                <AiOutlineMinus className='detail_btn_icons' /> :
+                                <AiOutlinePlus className='detail_btn_icons' />
+                            }
+
+                            {!NotInWishList ? "REMOVE FROM WATCH LIST" : "ADD TO WATCH LIST"}
                         </button>
                     </div>
                 </div>

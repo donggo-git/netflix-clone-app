@@ -39,7 +39,7 @@ function NetflixApp() {
     }
 
     const addToWishList = (movie) => {
-
+        //because movie id is number so we need to use toString() method
         const movieList = db.collection("wishList").doc(movie?.id.toString());
         movieList.get()
             .then((doc) => {

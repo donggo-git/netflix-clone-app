@@ -19,7 +19,7 @@ function WishList({ changeDetail }) {
             <h2>Wish list</h2>
             <div className="Row_imgList">
                 {wishList?.map(movie => (
-                    <NavLink to='/detail' className="Row_imgList_imgContainer" key={movie.movie.id}>
+                    <NavLink to='/detail' className="Row_imgList_imgContainer" key={movie.id}>
                         <img src={`https://image.tmdb.org/t/p/original${window.screen.width > 1000 ? movie.movie.backdrop_path : movie.movie.poster_path}`}
                             key={movie.movie.id} height='100%' onClick={() => changeDetail(movie.movie)}
                         />
