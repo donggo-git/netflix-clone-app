@@ -35,6 +35,7 @@ function NetflixApp() {
     }
     //method change detail movie in detail page
     const changeDetail = (movie) => {
+        console.log(movie.id)
         setDetailMovie(movie)
     }
 
@@ -58,6 +59,7 @@ function NetflixApp() {
                 else return;
             })
     }
+    const removeFromWishList = () => { }
     return (
         <BrowserRouter>
             <Route render={({ location }) => (

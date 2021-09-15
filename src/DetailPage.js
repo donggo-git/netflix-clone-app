@@ -35,6 +35,12 @@ function DetailPage({ movie, playHandle, addToWishList, isAddToWL }) {
 
     useEffect(() => checkWishList(movie), [])
 
+    const removeFromWishList = (movie) => {
+        if (Object.keys(movie).length !== 0 && movie.id !== undefined) {
+            db.collection("wishList").doc(movie?.id.toString()).delete().then();
+        }
+    }
+
     return (
         <div className="page"
             style={window.screen.width > 1000 ? backgroundImg : {}}
@@ -61,7 +67,10 @@ function DetailPage({ movie, playHandle, addToWishList, isAddToWL }) {
                         <button className='detail_btn_play' onClick={() => playHandle(movie)}>
                             <BiRightArrow className='detail_btn_icons' />   PLAY
                         </button>
-                        <button className="detail_btn_watchList" onClick={() => addToWishList(movie)}>
+                        <button className="detail_btn_watchList" onClick={() => {
+                            !NotInWishList ?
+                                removeFromWishList(movie) : addToWishList(movie)
+                        }}>
                             {/*change icon when movie in wish list*/}
 
                             {!NotInWishList ?
