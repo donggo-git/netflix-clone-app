@@ -9,10 +9,11 @@ import { db } from './firebase'
 import './NetflixApp.css'
 
 function NetflixApp() {
+    //WL is initial for Watch List
     const [movieTrailerURL, setMovieTrailerURL] = useState("")
     const [detailMovie, setDetailMovie] = useState({})
     const [isTrailerShow, setIsTrailerShow] = useState(false)
-    const [isAddToWL, setIsAddToWL] = useState(false)
+    const [NotInWishList, setNotInWishList] = useState(false)
     const playHandle = (movie) => {
         console.log(movie)
         movieTrailer(movie?.title || movie?.original_title || movie?.original_name)
@@ -44,22 +45,23 @@ function NetflixApp() {
         const movieList = db.collection("wishList").doc(movie?.id.toString());
         movieList.get()
             .then((doc) => {
-                if (!doc.exists) {
-                    db.collection("wishList").doc(movie?.id.toString()).set({
-                        title: (movie?.title || movie?.original_title || movie?.original_name) ?? "",
-                        release_date: movie?.release_date ?? "",
-                        vote_average: movie?.vote_average ?? "",
-                        overview: movie?.overview ?? "",
-                        poster_path: movie?.poster_path ?? "",
-                        backdrop_path: movie?.backdrop_path ?? ""
-                    })
-                    setIsAddToWL(true)
-                    setTimeout(() => setIsAddToWL(false), 300)
-                }
-                else return;
+
+                db.collection("wishList").doc(movie?.id.toString()).set({
+                    title: (movie?.title || movie?.original_title || movie?.original_name) ?? "",
+                    release_date: movie?.release_date ?? "",
+                    vote_average: movie?.vote_average ?? "",
+                    overview: movie?.overview ?? "",
+                    poster_path: movie?.poster_path ?? "",
+                    backdrop_path: movie?.backdrop_path ?? ""
+                })
+
             })
     }
-    const removeFromWishList = () => { }
+    const removeFromWishList = (movie) => {
+        if (Object.keys(movie).length !== 0 && movie.id !== undefined) {
+            db.collection("wishList").doc(movie?.id.toString()).delete().then();
+        }
+    }
     return (
         <BrowserRouter>
             <Route render={({ location }) => (
@@ -78,7 +80,7 @@ function NetflixApp() {
                                     movie={detailMovie}
                                     playHandle={playHandle}
                                     addToWishList={addToWishList}
-                                    isAddToWL={isAddToWL}
+                                    removeFromWishList={removeFromWishList}
                                 />}
                             />
                         </Switch>

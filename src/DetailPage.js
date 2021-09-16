@@ -7,8 +7,9 @@ import { CSSTransition } from 'react-transition-group';
 import { MdDone } from 'react-icons/md'
 import { db } from './firebase'
 
-function DetailPage({ movie, playHandle, addToWishList, isAddToWL }) {
+function DetailPage({ movie, playHandle, addToWishList, removeFromWishList }) {
     const [NotInWishList, setNotInWishList] = useState(false)
+    const [isAnnounceWL, setIsAnnounceWL] = useState(false)
     let backgroundImg = {
         backgroundSize: "cover",
         backgroundImage: window.screen.width > 1000 ?
@@ -32,14 +33,22 @@ function DetailPage({ movie, playHandle, addToWishList, isAddToWL }) {
             return
         }
     }
+    const handleClick = (movie) => {
+        checkWishList(movie)
 
-    useEffect(() => checkWishList(movie), [])
-
-    const removeFromWishList = (movie) => {
-        if (Object.keys(movie).length !== 0 && movie.id !== undefined) {
-            db.collection("wishList").doc(movie?.id.toString()).delete().then();
+        if (NotInWishList) {
+            addToWishList(movie)
+            console.log("add")
         }
+        else {
+            removeFromWishList(movie)
+            console.log("remove")
+        }
+
+        setIsAnnounceWL(true)
+        setTimeout(() => setIsAnnounceWL(false), 600)
     }
+    checkWishList(movie)
 
     return (
         <div className="page"
@@ -67,10 +76,7 @@ function DetailPage({ movie, playHandle, addToWishList, isAddToWL }) {
                         <button className='detail_btn_play' onClick={() => playHandle(movie)}>
                             <BiRightArrow className='detail_btn_icons' />   PLAY
                         </button>
-                        <button className="detail_btn_watchList" onClick={() => {
-                            !NotInWishList ?
-                                removeFromWishList(movie) : addToWishList(movie)
-                        }}>
+                        <button className="detail_btn_watchList" onClick={() => { handleClick(movie) }}>
                             {/*change icon when movie in wish list*/}
 
                             {!NotInWishList ?
@@ -78,13 +84,13 @@ function DetailPage({ movie, playHandle, addToWishList, isAddToWL }) {
                                 <AiOutlinePlus className='detail_btn_icons' />
                             }
 
-                            {!NotInWishList ? "REMOVE FROM WATCH LIST" : "ADD TO WATCH LIST"}
+                            {!NotInWishList ? "REMOVE" : "MY LIST"}
                         </button>
                     </div>
                 </div>
             </div>
             <CSSTransition
-                in={isAddToWL} timeout={300}
+                in={isAnnounceWL} timeout={300}
                 classNames="alert"
                 unmountOnExit
             >
