@@ -25,35 +25,41 @@
 }
 .header_content_buttons{
     display: flex;
+
 }
-.header_content_buttons>button,.watch_btn_container{
+.header_btn{
     margin: 0 5px;
-    padding: 15px 20px;
-    border-radius: 10rem;
+    padding: 15px 10px;
+    border-radius: 2px;
     border: none;
     color: #fff;
-    width: 120px;
-    align-items: center;
-    display: flex;
-    justify-content: space-evenly;
+    width: 130px;
     cursor: pointer;
     transition: all 0.4s;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     text-decoration: none;
 }
-.header_content_buttons>button:hover,.watch_btn_container:hover{
-    transform: scale(1.03);
-}
-.watch_btn_container{
+.play_btn{
     background-color: red;
 }
+.play_btn:hover{
+    transform: scale(1.03);
+}
+.watch_btn_container:hover{
+    transform: scale(1.03);
+    background-color: rgba(175, 175, 175, 0.4);
+}
+.watch_btn_container{
+    background-color: rgba(99, 99, 99, 0.4);
+}
 .watch_btn_container>button{
+    width: 100%;
     background:none;
     border: none;
     color: #fff;
-}
-.addList_btn{
-    background-color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 @media only screen and (max-width: 1000px){
     .header{

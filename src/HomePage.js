@@ -8,7 +8,7 @@ function HomePage({ changeDetail, playHandle, addToWishList }) {
     return (
         <div className="page">
             <Nav />
-            <Header playHandle={playHandle} changeDetail={changeDetail} addToWishList={addToWishList} />
+            <Header playHandle={playHandle} changeDetail={changeDetail} addToWishList={addToWishList} playHandle={playHandle} />
             <RowList changeDetail={changeDetail} />
         </div>
     )

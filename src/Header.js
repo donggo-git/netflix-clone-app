@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import './Header.css'
 import { BASE_URL, type } from './request'
-import { AiFillCaretRight, AiOutlinePlus } from 'react-icons/ai'
+import { AiFillCaretRight } from 'react-icons/ai'
+import { CgDetailsMore } from 'react-icons/cg'
 import { NavLink } from 'react-router-dom'
 
-function Header({ changeDetail, addToWishList }) {
+function Header({ changeDetail, playHandle }) {
     const [movie, setMovie] = useState([])
-    const [headerImg, setHeaderImg] = useState()
     const fetchTrending = async () => {
 
         fetch('https://api.themoviedb.org/3/trending/all/day?api_key=d03ccd3f8ae255e9b5fa0f7c48581e8c')
@@ -40,8 +40,8 @@ function Header({ changeDetail, addToWishList }) {
                     <h1>{movie?.title || movie?.original_title || movie?.original_name}</h1>
                     <p>{truncate(movie?.overview)}</p>
                     <div className='header_content_buttons'>
-                        <NavLink to="/detail" className='watch_btn_container'><button className="watch_btn" onClick={() => changeDetail(movie)}><AiFillCaretRight /> WATCH</button></NavLink>
-                        <button className="addList_btn" onClick={() => addToWishList(movie)}><AiOutlinePlus /> ADD LIST</button>
+                        <NavLink to="/detail" className='watch_btn_container header_btn'><button className="watch_btn" onClick={() => changeDetail(movie)}><CgDetailsMore />MORE DETAIL</button></NavLink>
+                        <button className="header_btn play_btn" onClick={() => playHandle(movie)}><AiFillCaretRight /> PLAY TRAILER</button>
                     </div>
                 </div>
             </div>
