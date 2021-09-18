@@ -16,7 +16,7 @@ function WishList({ changeDetail }) {
     useEffect(() => getWishList(), [])
     return (
         <div className="Row">
-            <h2>Wish list</h2>
+            <h2>My list</h2>
             <div className="Row_imgList">
                 {wishList?.map(movie => (
                     <NavLink to='/detail' className="Row_imgList_imgContainer" key={movie.id}>

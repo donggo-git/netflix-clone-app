@@ -37,7 +37,7 @@ function Header({ changeDetail, playHandle }) {
                 }}
             >
                 <div className="header_content">
-                    <h1>{movie?.title || movie?.original_title || movie?.original_name}</h1>
+                    <h1>{movie?.title || movie?.original_title || movie?.original_name || movie?.name}</h1>
                     <p>{truncate(movie?.overview)}</p>
                     <div className='header_content_buttons'>
                         <NavLink to="/detail" className='watch_btn_container header_btn'><button className="watch_btn" onClick={() => changeDetail(movie)}><CgDetailsMore />MORE DETAIL</button></NavLink>

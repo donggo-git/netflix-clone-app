@@ -7,13 +7,14 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { db } from './firebase'
 import './NetflixApp.css'
+import SectionPage from './SectionPage';
 
 function NetflixApp() {
     //WL is initial for Watch List
     const [movieTrailerURL, setMovieTrailerURL] = useState("")
     const [detailMovie, setDetailMovie] = useState({})
     const [isTrailerShow, setIsTrailerShow] = useState(false)
-    const [NotInWishList, setNotInWishList] = useState(false)
+    const [section, setSection] = useState("TV_Shows")
     const playHandle = (movie) => {
         console.log(movie)
         movieTrailer(movie?.title || movie?.original_title || movie?.original_name)
@@ -82,6 +83,11 @@ function NetflixApp() {
                                     playHandle={playHandle}
                                     addToWishList={addToWishList}
                                     removeFromWishList={removeFromWishList}
+                                />}
+                            />
+                            <Route path="/section" component={() =>
+                                <SectionPage
+                                    section={section}
                                 />}
                             />
                         </Switch>

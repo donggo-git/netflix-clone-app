@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { AiOutlineSearch, AiFillCaretDown, AiFillBell, AiOutlineClose } from 'react-icons/ai';
 import { GiHamburgerMenu } from 'react-icons/gi'
+import { NavLink } from 'react-router-dom';
 import './Nav.css'
 
 function Nav() {
@@ -36,7 +37,7 @@ function Nav() {
             >
                 <AiOutlineClose className="close-icon" onClick={() => setNavClose(true)} />
                 <li className="nav_link_homePage"><a href="#" style={linkStyle}>Home</a></li>
-                <li><a href="#">TV Shows</a></li>
+                <li><NavLink to="section">TV Shows</NavLink></li>
                 <li><a href="#">Movies</a></li>
                 <li><a href="#">Latest</a></li>
                 <li><a href="#">My List</a></li>
