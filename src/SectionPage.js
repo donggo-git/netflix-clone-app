@@ -8,7 +8,7 @@ function SectionPage({ section }) {
     }
     const fetchSection = async (section) => {
 
-        if (section === 'TV Shows') {
+        if (section === 'TV_Shows') {
             await fetch(`${BASE_URL}discover/tv?api_key=${key}&sort_by=popularity.desc`)
                 .then(doc => {
                     doc.json().then(data => {
