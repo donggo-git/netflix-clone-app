@@ -14,7 +14,7 @@ function NetflixApp() {
     const [movieTrailerURL, setMovieTrailerURL] = useState("")
     const [detailMovie, setDetailMovie] = useState({})
     const [isTrailerShow, setIsTrailerShow] = useState(false)
-    const [section, setSection] = useState("TV_Shows")
+    const [section, setSection] = useState("Latest")
     const playHandle = (movie) => {
         console.log(movie)
         movieTrailer(movie?.title || movie?.original_title || movie?.original_name)

@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { BASE_URL, key } from './request'
+import "./SectionPage.css"
 
 function SectionPage({ section }) {
     const [movies, setMovies] = useState([])
-    const fetchingTV = async () => {
-
-    }
     const fetchSection = async (section) => {
 
         if (section === 'TV_Shows') {
@@ -30,18 +28,23 @@ function SectionPage({ section }) {
                     doc.json().then(data => setMovies(data.results))
                 })
         }
+        console.log(movies)
     }
 
     useEffect(() => fetchSection(section), [])
     return (
-        <div>
-            <h1>{section}</h1>
+        <div className="page">
+            <h1 className="section">{section}</h1>
 
-            <div className="movies_list_container">
+            <div className="section_movieList">
                 {movies?.map(movie => (
-                    <div className="movie">
-                        <img src={`https://image.tmdb.org/t/p/original/${movie?.poster_path}`} />
-                        <p>{movie?.name || movie?.title || movie?.original_title || movie?.original_name}</p>
+                    <div className="movie" style={{ backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")` }}>
+                        <div className="section_movie_content">
+                            <h1>{movie.name || movie?.title || movie?.original_title || movie?.original_name}</h1>
+                            <div className="section_movie_content_buttons">
+                                <div></div>
+                            </div>
+                        </div>
                     </div>
                 ))}
             </div>
