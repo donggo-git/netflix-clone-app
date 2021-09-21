@@ -7,15 +7,14 @@ function SectionPage({ section }) {
     const [movies, setMovies] = useState([])
     const fetchSection = async (section) => {
 
-        if (section === 'TV_Shows') {
-            await fetch(`${BASE_URL}discover/tv?api_key=${key}&sort_by=popularity.desc`)
+        if (section === 'TV Shows') {
+            fetch(`${BASE_URL}discover/tv?api_key=${key}&sort_by=popularity.desc`)
                 .then(doc => {
                     doc.json().then(data => {
                         console.log(data.results)
                         setMovies(data.results)
                     })
                 })
-            console.log(section)
         }
         if (section === "Movies") {
             fetch(`${BASE_URL}discover/movie?api_key=${key}&sort_by=popularity.desc`)
@@ -50,7 +49,7 @@ function SectionPage({ section }) {
                             <h1>{movie.name || movie?.title || movie?.original_title || movie?.original_name}</h1>
                             <div className="section_movie_content_buttons">
                                 <div>
-                                    {calculateVote(movie.vote_average).map(() => <AiFillStar />)}
+                                    {calculateVote(movie?.vote_average).map(() => <AiFillStar />)}
                                 </div>
                             </div>
                         </div>

@@ -4,7 +4,7 @@ import { GiHamburgerMenu } from 'react-icons/gi'
 import { NavLink } from 'react-router-dom';
 import './Nav.css'
 
-function Nav() {
+function Nav({ changeSection }) {
     const linkStyle = {
         color: '#fff'
     }
@@ -37,9 +37,9 @@ function Nav() {
             >
                 <AiOutlineClose className="close-icon" onClick={() => setNavClose(true)} />
                 <li className="nav_link_homePage"><a href="#" style={linkStyle}>Home</a></li>
-                <li><NavLink to="section">TV Shows</NavLink></li>
-                <li><a href="#">Movies</a></li>
-                <li><a href="#">Latest</a></li>
+                <li onClick={(e) => changeSection(e.target.innerText)}><NavLink to="section">TV Shows</NavLink></li>
+                <li onClick={(e) => changeSection(e.target.innerText)}><NavLink to="section">Movies</NavLink></li>
+                <li onClick={(e) => changeSection(e.target.innerText)}><NavLink to="section">Latest</NavLink></li>
                 <li><a href="#">My List</a></li>
             </ul>
             <div className="nav_right_column">

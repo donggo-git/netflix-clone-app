@@ -63,6 +63,9 @@ function NetflixApp() {
             db.collection("wishList").doc(movie?.id.toString()).delete().then();
         }
     }
+    const changeSection = (section) => {
+        setSection(section)
+    }
     return (
         <BrowserRouter>
             <Route render={({ location }) => (
@@ -76,6 +79,7 @@ function NetflixApp() {
                                     playHandle={playHandle}
                                     addToWishList={addToWishList}
                                     playHandle={playHandle}
+                                    changeSection={changeSection}
                                 />} />
                             <Route path='/detail' component={() =>
                                 <DetailPage

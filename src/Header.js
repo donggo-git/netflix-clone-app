@@ -5,7 +5,7 @@ import { AiFillCaretRight } from 'react-icons/ai'
 import { CgDetailsMore } from 'react-icons/cg'
 import { NavLink } from 'react-router-dom'
 
-function Header({ changeDetail, playHandle }) {
+function Header({ changeDetail, playHandle, changeSection }) {
     const [movie, setMovie] = useState([])
     const fetchTrending = async () => {
 
