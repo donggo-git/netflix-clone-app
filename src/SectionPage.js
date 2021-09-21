@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { BASE_URL, key } from './request'
+import { AiFillStar } from 'react-icons/ai'
 import "./SectionPage.css"
 
 function SectionPage({ section }) {
@@ -30,7 +31,13 @@ function SectionPage({ section }) {
         }
         console.log(movies)
     }
-
+    const calculateVote = (vote) => {
+        let arr = []
+        for (let i = 0; i <= vote / 2; i++) {
+            arr.push(1)
+        }
+        return arr;
+    }
     useEffect(() => fetchSection(section), [])
     return (
         <div className="page">
@@ -42,7 +49,9 @@ function SectionPage({ section }) {
                         <div className="section_movie_content">
                             <h1>{movie.name || movie?.title || movie?.original_title || movie?.original_name}</h1>
                             <div className="section_movie_content_buttons">
-                                <div></div>
+                                <div>
+                                    {calculateVote(movie.vote_average).map(() => <AiFillStar />)}
+                                </div>
                             </div>
                         </div>
                     </div>
