@@ -15,8 +15,8 @@ function NetflixApp() {
     const [detailMovie, setDetailMovie] = useState({})
     const [isTrailerShow, setIsTrailerShow] = useState(false)
     const [section, setSection] = useState("Latest")
-    const playHandle = (movie) => {
-        console.log(movie)
+    const playHandle = (movie, e) => {
+
         movieTrailer(movie?.title || movie?.original_title || movie?.original_name)
             .then(response => {
                 //check if we can find the trailer
@@ -71,8 +71,11 @@ function NetflixApp() {
             <Route render={({ location }) => (
 
                 <TransitionGroup>
-                    <CSSTransition timeout={300} classNames={location.pathname === '/' ? 'transitionToLeft' : 'transitionToRight'} key={location.key}>
-                        <Switch>
+                    <CSSTransition timeout={300}
+                        classNames={location.pathname === '/' ? 'transitionToLeft' :
+                            'transitionToRight'}
+                        key={location.key}>
+                        <Switch location={location}>
                             <Route path='/' exact component={() =>
                                 <HomePage
                                     changeDetail={changeDetail}
@@ -92,6 +95,7 @@ function NetflixApp() {
                             <Route path="/section" component={() =>
                                 <SectionPage
                                     section={section}
+                                    changeDetail={changeDetail}
                                 />}
                             />
                         </Switch>

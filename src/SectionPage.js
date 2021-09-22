@@ -4,7 +4,7 @@ import { AiFillStar, AiOutlineArrowLeft } from 'react-icons/ai'
 import { NavLink } from 'react-router-dom'
 import "./SectionPage.css"
 
-function SectionPage({ section }) {
+function SectionPage({ section, changeDetail }) {
     const [movies, setMovies] = useState([])
     const fetchSection = async (section) => {
 
@@ -29,6 +29,7 @@ function SectionPage({ section }) {
                     doc.json().then(data => setMovies(data.results))
                 })
         }
+        window.scrollTo(0, 0)
     }
     const calculateVote = (vote) => {
         let arr = []
@@ -55,16 +56,21 @@ function SectionPage({ section }) {
 
             <div className="section_movieList">
                 {movies?.map(movie => (
-                    <div className="movie" style={{ backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")` }}>
-                        <div className="section_movie_content">
-                            <h1>{movie.name || movie?.title || movie?.original_title || movie?.original_name}</h1>
-                            <div className="voting_rate">
-                                <div className="voting_start">{calculateVote(movie?.vote_average).map(() => <AiFillStar />)}</div>
-                                <div className="voting_score">{movie?.vote_average / 2}</div>
+                    <NavLink to="detail">
+                        <div className="movie"
+                            style={{ backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")` }}
+                            onClick={() => changeDetail(movie)}
+                        >
+                            <div className="section_movie_content">
+                                <h1>{movie.name || movie?.title || movie?.original_title || movie?.original_name}</h1>
+                                <div className="voting_rate">
+                                    <div className="voting_start">{calculateVote(movie?.vote_average).map(() => <AiFillStar />)}</div>
+                                    <div className="voting_score">{movie?.vote_average / 2}</div>
+                                </div>
+                                <p>{truncate(movie?.overview)}</p>
                             </div>
-                            <p>{truncate(movie?.overview)}</p>
                         </div>
-                    </div>
+                    </NavLink>
                 ))}
             </div>
         </div>
