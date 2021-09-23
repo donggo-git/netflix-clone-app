@@ -5,7 +5,7 @@
   }
   .transitionToRight-appear-active,.transitionToRight-enter.transitionToRight-enter-active{
     display: none;
-    transition: all 250ms linear 100ms;
+    transition: all 400ms linear 200ms;
     transform: translateX(0%);
   }
   
@@ -15,7 +15,7 @@
   }
   .transitionToRight-exit.transitionToRight-exit-active{
     transform: translateX(100%);
-    transition: all 250ms linear;
+    transition: all 400ms linear;
   }
 
 
@@ -26,7 +26,7 @@
   }
   .transitionToLeft-appear-active,.transitionToLeft-enter.transitionToLeft-enter-active{
     
-    transition: all 250ms linear 100ms;
+    transition: all 400ms linear 200ms;
     transform: translateX(0);
   }
   
@@ -46,4 +46,15 @@
     top: 0px;
     left: 0;
     right: 0;
+  }
+  @media only screen and (max-width: 1000px){
+    .transitionToRight-exit.transitionToRight-exit-active{
+      transition: all 200ms linear;
+    }
+    .transitionToRight-appear-active,.transitionToRight-enter.transitionToRight-enter-active{
+      transition: all 250ms linear 100ms;
+    }
+    .transitionToLeft-appear-active,.transitionToLeft-enter.transitionToLeft-enter-active{
+      transition: all 250ms linear 100ms;
+    }
   }

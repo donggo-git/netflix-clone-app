@@ -63,11 +63,12 @@
 @media only screen and (max-width: 1000px){
     .section_movieList{
         width: 100%;
-        grid-template-columns: 50% 50% ;
+        grid-template-columns: 48% 48% ;
+        justify-content: space-evenly;
     }
     .movie{
-        margin-top: 0;
-        height: 150px;
+        margin-top: 5px;
+        height: 300px;
         width: 100%;
     }
 }

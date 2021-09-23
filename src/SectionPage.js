@@ -58,7 +58,10 @@ function SectionPage({ section, changeDetail }) {
                 {movies?.map(movie => (
                     <NavLink to="detail">
                         <div className="movie"
-                            style={{ backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")` }}
+                            style={window.screen.width > 1000 ?
+                                { backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")` } :
+                                { backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.poster_path}")` }
+                            }
                             onClick={() => changeDetail(movie)}
                         >
                             <div className="section_movie_content">

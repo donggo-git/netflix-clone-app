@@ -3,6 +3,7 @@ import TrailerVideo from './TrailerVideo'
 import movieTrailer from 'movie-trailer'
 import DetailPage from './DetailPage';
 import HomePage from './HomePage';
+import SearchMovies from './SearchMovies'
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { db } from './firebase'
@@ -71,7 +72,7 @@ function NetflixApp() {
             <Route render={({ location }) => (
 
                 <TransitionGroup>
-                    <CSSTransition timeout={300}
+                    <CSSTransition timeout={window.screen.width > 1000 ? 600 : 400}
                         classNames={location.pathname === '/' ? 'transitionToLeft' :
                             'transitionToRight'}
                         key={location.key}>
@@ -98,6 +99,7 @@ function NetflixApp() {
                                     changeDetail={changeDetail}
                                 />}
                             />
+                            <Route path="/search" component={() => <SearchMovies />} />
                         </Switch>
                     </CSSTransition>
                 </TransitionGroup>
