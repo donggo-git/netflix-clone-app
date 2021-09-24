@@ -3,6 +3,7 @@ import { AiOutlineSearch, AiFillCaretDown, AiFillBell, AiOutlineClose } from 're
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { NavLink } from 'react-router-dom';
 import './Nav.css'
+import SearchMovies from './SearchMovies'
 
 function Nav({ changeSection }) {
     const linkStyle = {
@@ -10,11 +11,16 @@ function Nav({ changeSection }) {
     }
     const [isNavClose, setNavClose] = useState(true)
     const [isBlackNav, setIsBlackNav] = useState(false)
+    const [isSearchOpen, setIsSearchOpen] = useState(false)
     const navLinkStyleClose = {
         transform: 'translateX(-500%)'
     }
     const navLinkStyleOpen = {
         transform: 'translateX(-20%)'
+    }
+    const setSearch = () => {
+        console.log(isSearchOpen)
+        setIsSearchOpen(pre => !pre)
     }
     useEffect(() => {
         window.addEventListener(("scroll"), () => {
@@ -23,6 +29,7 @@ function Nav({ changeSection }) {
         });
 
     }, [])
+
     return (
         <nav className={isBlackNav ? 'nav_black' : ""}>
             <GiHamburgerMenu className="burger-icon" onClick={() => setNavClose(false)} />
@@ -43,7 +50,8 @@ function Nav({ changeSection }) {
                 <li><a href="#">My List</a></li>
             </ul>
             <div className="nav_right_column">
-                <AiOutlineSearch className="nav_right_column_icon" />
+                <SearchMovies isSearchOpen={isSearchOpen} />
+                <AiOutlineSearch className="nav_right_column_icon" onClick={() => setSearch()} />
                 <p>Search</p>
                 <AiFillBell className="nav_right_column_icon" />
                 <img src="https://th.bing.com/th/id/R.8b61c1b9698d53bf246e1e245240ebee?rik=kDstmfK1wN4eWA&pid=ImgRaw&r=0" />
