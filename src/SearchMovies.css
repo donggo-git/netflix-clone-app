@@ -5,6 +5,7 @@
     width: 400px;
     transition: all 0.5s;
     transform-origin:bottom right;
+    position: relative;
 }
 .searchMovies>input{
     background-color: rgb(223, 223, 223);
@@ -13,7 +14,30 @@
     padding: 10px 5px;
     width: 100%;
     color: rgb(0, 0, 0);
+    padding-right: 0;
 }
 .searchMovies>input:focus{
     outline: none;
+}
+.searchMovies_movieList{
+    position: absolute;
+    top: 100%;
+    left: 0%;
+    background-color: rgb(0, 0, 0);
+    width: 100%;
+    overflow-y: scroll;
+    height: calc(100vh - 57.5px);
+}
+.searchMovies_movie{
+    height: 80px;
+    display: flex;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+.searchMovies_movie:hover{
+    background-color: rgb(56, 56, 56);
+}
+.searchMovies_movie>p{
+    margin-left: 15px;
 }
