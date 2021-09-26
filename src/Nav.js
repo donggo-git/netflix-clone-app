@@ -44,9 +44,9 @@ function Nav({ changeSection, changeDetail }) {
             >
                 <AiOutlineClose className="close-icon" onClick={() => setNavClose(true)} />
                 <li className="nav_link_homePage"><a href="#" style={linkStyle}>Home</a></li>
-                <li onClick={(e) => changeSection(e.target.innerText)}><NavLink to="section">TV Shows</NavLink></li>
-                <li onClick={(e) => changeSection(e.target.innerText)}><NavLink to="section">Movies</NavLink></li>
-                <li onClick={(e) => changeSection(e.target.innerText)}><NavLink to="section">Latest</NavLink></li>
+                <li onClick={(e) => changeSection(e.target.innerText)}><NavLink to="/section">TV Shows</NavLink></li>
+                <li onClick={(e) => changeSection(e.target.innerText)}><NavLink to="/section">Movies</NavLink></li>
+                <li onClick={(e) => changeSection(e.target.innerText)}><NavLink to="/section">Latest</NavLink></li>
                 <li><a href="#">My List</a></li>
             </ul>
             <div className="nav_right_column">

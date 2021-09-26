@@ -49,14 +49,14 @@ function SectionPage({ section, changeDetail }) {
     useEffect(() => fetchSection(section), [])
     return (
         <div className="page">
-            <NavLink to="/">
+            <NavLink to="/netflix-clone-app/">
                 <AiOutlineArrowLeft className="return_btn" />
             </NavLink>
             <h1>{section}</h1>
 
             <div className="section_movieList">
                 {movies?.map(movie => (
-                    <NavLink to="detail">
+                    <NavLink to="/netflix-clone-app/detail/">
                         <div className="movie"
                             style={window.screen.width > 1000 ?
                                 { backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")` } :

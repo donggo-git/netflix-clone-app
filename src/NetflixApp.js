@@ -72,11 +72,11 @@ function NetflixApp() {
 
                 <TransitionGroup>
                     <CSSTransition timeout={window.screen.width > 1000 ? 600 : 400}
-                        classNames={location.pathname === '/' ? 'transitionToLeft' :
+                        classNames={location.pathname === 'netflix-clone-app/' ? 'transitionToLeft' :
                             'transitionToRight'}
                         key={location.key}>
                         <Switch location={location}>
-                            <Route path='/' exact component={() =>
+                            <Route path='/netflix-clone-app/' exact component={() =>
                                 <HomePage
                                     changeDetail={changeDetail}
                                     playHandle={playHandle}

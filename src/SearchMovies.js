@@ -41,7 +41,7 @@ function SearchMovies({ isSearchOpen, changeDetail }) {
                 style={searchList.length > 0 ? { height: 'calc(100vh - 57.5px)' }
                     : { height: '0' }}>
                 {searchList.length > 0 ? searchList.map(movie => (
-                    <NavLink to='./detail' key={movie.id}>
+                    <NavLink to='/detail' key={movie.id}>
                         <div className="searchMovies_movie" onClick={() => changeDetail(movie)}>
                             <img src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`} height='100%' />
                             <p>{movie?.name || movie?.original_title || movie?.original_name || movie?.title}</p>

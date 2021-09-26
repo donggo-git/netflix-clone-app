@@ -55,7 +55,7 @@ function DetailPage({ movie, playHandle, addToWishList, removeFromWishList }) {
             style={window.screen.width > 1000 ? backgroundImg : {}}
         >
             <div className="detailPage">
-                <NavLink to="/">
+                <NavLink to="/netflix-clone-app/">
                     <AiOutlineArrowLeft className="return_btn" />
                 </NavLink>
                 <div
