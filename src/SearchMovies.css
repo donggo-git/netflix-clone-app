@@ -34,10 +34,24 @@
     padding: 15px;
     cursor: pointer;
     transition: all 0.4s;
+    color: #fff;
+    text-decoration: none;
 }
 .searchMovies_movie:hover{
     background-color: rgb(56, 56, 56);
 }
 .searchMovies_movie>p{
     margin-left: 15px;
+    text-decoration: none;
+}
+@media only screen and (max-width: 1000px){
+    .searchMovies{
+        width: 180px;
+    }
+    .searchMovies_movie{
+        height: 40px;
+        padding: 5px;
+        font-size: 15px;
+        font-weight: lighter;
+    }
 }

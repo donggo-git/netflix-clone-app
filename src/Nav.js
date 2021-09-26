@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import './Nav.css'
 import SearchMovies from './SearchMovies'
 
-function Nav({ changeSection }) {
+function Nav({ changeSection, changeDetail }) {
     const linkStyle = {
         color: '#fff'
     }
@@ -50,7 +50,7 @@ function Nav({ changeSection }) {
                 <li><a href="#">My List</a></li>
             </ul>
             <div className="nav_right_column">
-                <SearchMovies isSearchOpen={isSearchOpen} />
+                <SearchMovies isSearchOpen={isSearchOpen} changeDetail={changeDetail} />
                 <AiOutlineSearch className="nav_right_column_icon" onClick={() => setSearch()} />
                 <p>Search</p>
                 <AiFillBell className="nav_right_column_icon" />
