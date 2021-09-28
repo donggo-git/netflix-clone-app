@@ -76,7 +76,7 @@ nav>img{
         height: 100vh;
         width: auto;
         transform: translateX(-100%);
-        transition: all 0.4s;
+        transition: all 0.9s ease-in-out;
         font-size: 1rem;
         padding: 20px;
         padding-left: 0;

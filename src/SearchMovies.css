@@ -46,7 +46,7 @@
 }
 @media only screen and (max-width: 1000px){
     .searchMovies{
-        width: 180px;
+        width: 160px;
     }
     .searchMovies_movie{
         height: 40px;
