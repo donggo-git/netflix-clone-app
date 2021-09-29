@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import './Header.css'
-import { BASE_URL, type } from './request'
 import { AiFillCaretRight } from 'react-icons/ai'
 import { CgDetailsMore } from 'react-icons/cg'
 import { NavLink } from 'react-router-dom'

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import './DetailPage.css'
 import { BiRightArrow } from 'react-icons/bi'
 import { AiOutlinePlus, AiOutlineArrowLeft, AiOutlineMinus } from 'react-icons/ai'
@@ -63,7 +63,7 @@ function DetailPage({ movie, playHandle, addToWishList, removeFromWishList }) {
                     style={window.screen.width <= 1000 ? backgroundImg : {}}
                 ></div>
                 <div className='detail_img_container'>
-                    <img src={`https://image.tmdb.org/t/p/original/${movie?.poster_path}`} height="100%" />
+                    <img src={`https://image.tmdb.org/t/p/original/${movie?.poster_path}`} height="100%" alt="" />
                 </div>
                 <div className="detail_content">
                     <h1>{movie?.title || movie?.original_title || movie?.original_name}</h1>
