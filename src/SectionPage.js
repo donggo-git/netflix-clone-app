@@ -56,7 +56,7 @@ function SectionPage({ section, changeDetail }) {
 
             <div className="section_movieList">
                 {movies?.map(movie => (
-                    <NavLink to="/netflix-clone-app/detail/">
+                    <NavLink to="/detail/">
                         <div className="movie"
                             style={window.screen.width > 1000 ?
                                 { backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")` } :
