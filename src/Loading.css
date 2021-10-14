@@ -2,8 +2,28 @@
     height: 100vh;
     width: 100%;
     overflow: hidden;
+    position: relative;
+    background-color: green;
 }
-video{
-    height: 100vh;
-    width: 100%;
+.Netflix-logo{
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: white;
+    display: flex;
+    justify-content: space-evenly;
+    overflow-y: hidden;
+}
+.Netflix_logo_bar{
+    width: 20px;
+    height: 100px;
+    background-color: red;
+}
+.theFirst{}
+.theSecond{
+    height: 110px;
+    transform: rotate(0.415turn) translate(1px,5px);
 }

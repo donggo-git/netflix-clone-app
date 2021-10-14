@@ -8,6 +8,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { db } from './firebase'
 import './NetflixApp.css'
 import SectionPage from './SectionPage';
+import Loading from './Loading';
 
 function NetflixApp() {
     //WL is initial for Watch List
@@ -102,7 +103,7 @@ function NetflixApp() {
                     </CSSTransition>
                 </TransitionGroup>
             )} />
-
+            {/*<Loading />*/}
             <TrailerVideo movieTrailerURL={movieTrailerURL} isTrailerShow={isTrailerShow} closeTrailer={closeTrailer} />
         </BrowserRouter>
     )
