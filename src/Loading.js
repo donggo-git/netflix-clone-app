@@ -2,10 +2,10 @@ import React from 'react'
 import "./Loading.css"
 
 function Loading() {
-    return (
+    return (<div className="Loading">
         {
             /*
-        <div className="Loading">
+        
             <div className="Netflix-logo">
                 <div className="Netflix_logo_bar theFirst"></div>
                 <div className="Netflix_logo_bar theSecond"></div>
@@ -13,6 +13,7 @@ function Loading() {
             </div>
         </div>*/
         }
+    </div>
     )
 }
 
