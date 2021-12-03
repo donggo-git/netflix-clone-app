@@ -27,6 +27,10 @@
     width: 100%;
     overflow-y: scroll;
     height: calc(100vh - 57.5px);
+    text-decoration: none;
+}
+.searchMovies_movieList>a{
+    text-decoration: none;
 }
 .searchMovies_movie{
     height: 80px;

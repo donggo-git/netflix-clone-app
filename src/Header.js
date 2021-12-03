@@ -44,7 +44,7 @@ function Header({ changeDetail, playHandle }) {
                     <p>{truncate(movie?.overview)}</p>
                     <div className='header_content_buttons'>
                         <NavLink to="/detail" className='watch_btn_container header_btn'><button className="watch_btn" onClick={() => changeDetail(movie)}><CgDetailsMore />MORE DETAIL</button></NavLink>
-                        <button className="header_btn play_btn" onClick={() => handlePlayBtn(movie)}><AiFillCaretRight /> PLAY TRAILER</button>
+                        <button className="header_btn play_btn" onClick={() => playHandle(movie)}><AiFillCaretRight /> PLAY TRAILER</button>
                     </div>
                 </div>
             </div>
