@@ -7,7 +7,7 @@ function App() {
   let NetflixApp = lazy(() => {
     return Promise.all([
       import("./NetflixApp"),
-      new Promise(resolve => setTimeout(resolve, 3500))
+      new Promise(resolve => setTimeout(resolve, 1800))
     ])
       .then(([moduleExports]) => moduleExports);
   })

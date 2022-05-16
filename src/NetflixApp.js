@@ -82,7 +82,6 @@ function NetflixApp() {
                                     changeDetail={changeDetail}
                                     playHandle={playHandle}
                                     addToWishList={addToWishList}
-                                    playHandle={playHandle}
                                     changeSection={changeSection}
                                 />} />
                             <Route path='/detail' component={() =>
