@@ -23,7 +23,7 @@ function WishList({ changeDetail }) {
                         {/*because firebase separate id with the other, so we put them back
                           *when we change detail movie in detailPage
                         */}
-                        <img src={`https://image.tmdb.org/t/p/original${window.screen.width > 1000 ? movie.movie.backdrop_path : movie.movie.poster_path}`}
+                        <img src={`https://image.tmdb.org/t/p/original${movie.movie.poster_path}`}
                             key={movie.movie.id} height='100%' onClick={() => {
                                 let movieChange = { ...movie.movie }
                                 movieChange.id = movie.id
